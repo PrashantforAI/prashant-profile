@@ -507,83 +507,181 @@
       text-decoration: underline;
     }
 
-    /* Experience Section */
+    /* Experience Section (Alternating Timeline) */
     .timeline {
       position: relative;
-      padding-left: 28px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0;
-      top: 8px;
+      left: 50%;
+      top: 0;
       bottom: 0;
       width: 2px;
       background: linear-gradient(to bottom, var(--bg-subtle) 10%, var(--accent-muted) 50%, var(--bg-subtle) 90%);
       opacity: 0.3;
+      transform: translateX(-50%);
     }
 
     .timeline-item {
       position: relative;
       margin-bottom: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
 
     .timeline-item:last-child {
       margin-bottom: 0;
     }
 
+    .timeline-item.left {
+      flex-direction: row-reverse;
+    }
+
+    .timeline-item.right {
+      flex-direction: row;
+    }
+
     .timeline-dot {
       position: absolute;
-      left: -32.5px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background-color: var(--accent);
       box-shadow: 0 0 12px rgba(168, 230, 207, 0.6);
-      transition: box-shadow 0.3s ease;
+      opacity: 0;
+      z-index: 2;
     }
 
-    .timeline-item:hover .timeline-dot {
-      box-shadow: 0 0 20px rgba(168, 230, 207, 1);
+    .timeline-dot.animate {
+      animation: dotPulseIn 0.5s ease forwards;
     }
 
-    .exp-header {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 12px;
+    @keyframes dotPulseIn {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+      }
+
+      70% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .timeline-connector {
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 2px;
+      background-color: #1A1A1A;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .timeline-item.left .timeline-connector {
+      right: 50%;
+    }
+
+    .timeline-item.right .timeline-connector {
+      left: 50%;
+    }
+
+    .exp-card {
+      width: 45%;
+      background: #111111;
+      border: 1px solid #1A1A1A;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+      transition: border-color 0.4s ease;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .exp-card:hover {
+      border-color: rgba(168, 230, 207, 0.4);
+    }
+
+    .exp-card.expanded {
+      border-color: rgba(168, 230, 207, 0.6);
+    }
+
+    .exp-card-bg-year {
+      position: absolute;
+      bottom: 12px;
+      font-size: 72px;
+      font-weight: 800;
+      color: rgba(168, 230, 207, 0.03);
+      font-family: var(--font-mono);
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    .timeline-item.left .exp-card-bg-year {
+      right: 16px;
+    }
+
+    .timeline-item.right .exp-card-bg-year {
+      left: 16px;
+    }
+
+    .exp-card-content {
+      position: relative;
+      z-index: 1;
     }
 
     .exp-company {
       font-size: 18px;
       font-weight: 600;
-      color: var(--text-primary);
+      color: #F0F0F0;
       margin-bottom: 4px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
     }
 
     .exp-role {
       font-size: 14px;
       color: var(--accent);
+      margin-bottom: 8px;
     }
 
     .exp-meta {
       font-size: 13px;
-      color: var(--text-muted);
+      color: #555555;
+      font-family: var(--font-mono);
+      margin-bottom: 16px;
+    }
+
+    .exp-details-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
     }
 
     .exp-bullets {
       list-style-type: none;
+      padding-top: 8px;
+      border-top: 1px solid #1A1A1A;
+      margin-top: 8px;
     }
 
     .exp-bullets li {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-secondary);
-      line-height: 1.7;
+      line-height: 1.6;
       margin-bottom: 8px;
       position: relative;
       padding-left: 16px;
@@ -594,6 +692,86 @@
       position: absolute;
       left: 0;
       color: var(--text-muted);
+    }
+
+    /* Nested Timeline (Packt) */
+    .nested-timeline {
+      position: relative;
+      margin-top: 16px;
+      padding-left: 20px;
+    }
+
+    .nested-timeline::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 6px;
+      bottom: 16px;
+      width: 1px;
+      background: var(--bg-subtle);
+      opacity: 0.6;
+    }
+
+    .nested-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .nested-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .nested-dot {
+      position: absolute;
+      left: -20px;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--accent);
+    }
+
+    .nested-role {
+      font-size: 14px;
+      font-weight: 600;
+      color: #F0F0F0;
+      margin-bottom: 4px;
+    }
+
+    .nested-dates {
+      font-size: 12px;
+      color: #555555;
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .exp-toggle-btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s ease;
+    }
+
+    .exp-toggle-btn:hover {
+      opacity: 0.8;
+    }
+
+    .exp-toggle-icon {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .exp-card.expanded .exp-toggle-icon {
+      transform: rotate(90deg);
     }
 
     /* Skills Section */
@@ -876,9 +1054,62 @@
 
       .about-text p,
       .project-desc,
-      .exp-bullets li,
       .contact-sub {
         font-size: 15px;
+      }
+
+      /* Mobile Timeline Override */
+      .timeline::before {
+        left: 16px;
+        transform: none;
+      }
+
+      .timeline-item.left,
+      .timeline-item.right {
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+
+      .timeline-dot {
+        left: 16px;
+        top: 24px;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+
+      .timeline-dot.animate {
+        animation: dotPulseInMobile 0.5s ease forwards;
+      }
+
+      @keyframes dotPulseInMobile {
+        0% {
+          transform: translate(-50%, -50%) scale(0.5);
+          opacity: 0;
+        }
+
+        70% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 1;
+        }
+
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      .timeline-connector {
+        display: none;
+      }
+
+      .exp-card {
+        width: calc(100% - 48px);
+      }
+
+      .timeline-item.left .exp-card-bg-year,
+      .timeline-item.right .exp-card-bg-year {
+        right: 16px;
+        left: auto;
       }
 
       .about-grid,
@@ -1202,117 +1433,199 @@
 
       <div class="timeline">
         <!-- Exp 1 -->
-        <div class="timeline-item fade-in">
+        <div class="timeline-item left fade-in">
           <div class="timeline-dot"></div>
-          <div class="exp-header">
-            <div class="exp-company">Pine Stays <span class="exp-meta">· Nov 2022 – Jan 2026 · Mumbai, India</span>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2022</div>
+            <div class="exp-card-content">
+              <div class="exp-company">Pine Stays</div>
+              <div class="exp-role">Head of Business Operations</div>
+              <div class="exp-meta">Nov 2022 – Jan 2026 · Mumbai</div>
+              <div class="exp-details-content" id="exp-pine">
+                <ul class="exp-bullets">
+                  <li><strong>Strategic Business Operations:</strong> Oversees end-to-end operations for this short-term
+                    rental platform, including property analysis, content curation, budget management, and customer
+                    service to ensure optimal performance.</li>
+                  <li><strong>AI-Driven Automation:</strong> Focused heavily on AI integration by developing custom AI
+                    tools to automate routine workflows. This resulted in reducing the manual data entry workload by 40%
+                    and accelerating response times for guest inquiries and reviews.</li>
+                  <li><strong>Data-Backed Decision Making:</strong> Leveraged Google automation and AI-powered analytics
+                    to build robust databases for marketing. He also utilized AI for price prediction and demand
+                    forecasting, which directly enhanced operational efficiency and revenue optimization.</li>
+                  <li><strong>Multi-Channel Sales Strategy:</strong> Designed and executed sales strategies utilizing
+                    AI-driven lead scoring and channel attribution. This maximized the platform's visibility on Airbnb,
+                    offline partners, and B2B relationships, ultimately leading to significant revenue growth.</li>
+                  <li><strong>Guest Experience & Innovation:</strong> Used AI tools to analyze guest behavior and
+                    feedback to enable targeted service improvements and create a personalized guest journey. He also
+                    instituted a culture of innovation by adopting the latest AI-powered property management SaaS,
+                    automating reporting dashboards, and upskilling team members.</li>
+                </ul>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-pine', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
             </div>
-            <div class="exp-role">Head of Business Operations</div>
           </div>
-          <ul class="exp-bullets">
-            <li><strong>Strategic Business Operations:</strong> Oversees end-to-end operations for this short-term
-              rental platform, including property analysis, content curation, budget management, and customer service to
-              ensure optimal performance.</li>
-            <li><strong>AI-Driven Automation:</strong> Focused heavily on AI integration by developing custom AI tools
-              to automate routine workflows. This resulted in reducing the manual data entry workload by 40% and
-              accelerating response times for guest inquiries and reviews.</li>
-            <li><strong>Data-Backed Decision Making:</strong> Leveraged Google automation and AI-powered analytics to
-              build robust databases for marketing. Utilized AI for price prediction and demand forecasting, which
-              directly enhanced operational efficiency and revenue optimization.</li>
-            <li><strong>Multi-Channel Sales Strategy:</strong> Designed and executed sales strategies utilizing
-              AI-driven lead scoring and channel attribution. This maximized the platform's visibility on Airbnb,
-              offline partners, and B2B relationships, ultimately leading to significant revenue growth.</li>
-            <li><strong>Guest Experience & Innovation:</strong> Used AI tools to analyze guest behavior and feedback to
-              enable targeted service improvements and create a personalized guest journey. Instituted a culture of
-              innovation by adopting the latest AI-powered property management SaaS, automating reporting dashboards,
-              and upskilling team members.</li>
-          </ul>
         </div>
 
         <!-- Exp 2 -->
-        <div class="timeline-item fade-in">
+        <div class="timeline-item right fade-in">
           <div class="timeline-dot"></div>
-          <div class="exp-header">
-            <div class="exp-company">upGrad KnowledgeHut <span class="exp-meta">· Nov 2021 – Oct 2022 · Mumbai,
-                India</span>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2021</div>
+            <div class="exp-card-content">
+              <div class="exp-company">KnowledgeHut upGrad</div>
+              <div class="exp-role">Content Acquisition & Strategy</div>
+              <div class="exp-meta">Nov 2021 – Oct 2022 · Mumbai</div>
+              <div class="exp-details-content" id="exp-kh">
+                <ul class="exp-bullets">
+                  <li><strong>Market Research:</strong> Led market research and competitive analysis for EdTech content
+                    across emerging technology categories.</li>
+                  <li><strong>Author & Course Management:</strong> Managed the title pool and contracted high-quality,
+                    relevant authors and technical reviewers. He successfully contracted and worked with over 15 authors
+                    to develop course ideas and flesh out course outlines, extracting maximum value from their
+                    expertise.</li>
+                  <li><strong>Quality Assurance:</strong> Collaborated with the Content Team to manage titles and ensure
+                    that courses were published on time while maintaining high quality.</li>
+                </ul>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-kh', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
             </div>
-            <div class="exp-role">Content Acquisition and Strategy</div>
           </div>
-          <ul class="exp-bullets">
-            <li><strong>Market Research:</strong> Led market research and competitive analysis for EdTech content across
-              emerging technology categories.</li>
-            <li><strong>Author & Course Management:</strong> Managed the title pool and contracted high-quality,
-              relevant authors and technical reviewers. Successfully contracted and worked with over 15 authors to
-              develop course ideas and flesh out course outlines, extracting maximum value from their expertise.</li>
-            <li><strong>Quality Assurance:</strong> Collaborated with the Content Team to manage titles and ensure that
-              courses were published on time while maintaining high quality.</li>
-          </ul>
         </div>
 
         <!-- Exp 3 -->
-        <div class="timeline-item fade-in">
+        <div class="timeline-item left fade-in">
           <div class="timeline-dot"></div>
-          <div class="exp-header">
-            <div class="exp-company">EC-Council <span class="exp-meta">· Apr 2020 – May 2021 · Mumbai, India</span>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2020</div>
+            <div class="exp-card-content">
+              <div class="exp-company">EC-Council</div>
+              <div class="exp-role">Senior Executive Acquisition Specialist</div>
+              <div class="exp-meta">Apr 2020 – May 2021 · Mumbai</div>
+              <div class="exp-details-content" id="exp-ec">
+                <ul class="exp-bullets">
+                  <li><strong>Partnerships & Product Design:</strong> Teamed up with top industry talent, thought
+                    leaders, evangelists, and tech influencers to design product and video courses. Managed the delivery
+                    of cybersecurity training programs.</li>
+                  <li><strong>Project Evaluation & Contracting:</strong> Familiarized himself with assigned projects to
+                    understand customer requirements and market value to find the right instructional resources.
+                    Successfully negotiated author contracts—covering advances, royalty rates, and schedules—while
+                    minimizing financial risks.</li>
+                  <li><strong>Quality & Coaching:</strong> Evaluated author submissions, resolved errors to ensure they
+                    were customer-friendly, and coached instructors alongside the editorial team to create quality video
+                    content and supporting study materials.</li>
+                </ul>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-ec', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
             </div>
-            <div class="exp-role">Senior Executive Acquisition Specialist</div>
           </div>
-          <ul class="exp-bullets">
-            <li><strong>Partnerships & Product Design:</strong> Teamed up with top industry talent, thought leaders,
-              evangelists, and tech influencers to design product and video courses. Managed the delivery of
-              cybersecurity training programs.</li>
-            <li><strong>Project Evaluation & Contracting:</strong> Familiarized with assigned projects to understand
-              customer requirements and market value to find the right instructional resources. Successfully negotiated
-              author contracts (covering advances, royalty rates, and schedules) while minimizing financial risks.</li>
-            <li><strong>Quality & Coaching:</strong> Evaluated author submissions, resolved errors to ensure they were
-              customer-friendly, and coached instructors alongside the editorial team to create quality video content
-              and supporting study materials.</li>
-          </ul>
         </div>
 
         <!-- Exp 4 -->
-        <div class="timeline-item fade-in">
+        <div class="timeline-item right fade-in">
           <div class="timeline-dot"></div>
-          <div class="exp-header">
-            <div class="exp-company">Packt <span class="exp-meta">· Aug 2016 – Mar 2020 · Mumbai, India</span></div>
-            <div class="exp-role">Acquisition Editor & Consultant</div>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2016</div>
+            <div class="exp-card-content">
+              <div class="exp-company">Packt</div>
+              <div class="exp-role">Acquisition Editor → Project Consultant → Technical Editor</div>
+              <div class="exp-meta">Aug 2016 – Mar 2020 · Mumbai</div>
+              <div class="exp-details-content" id="exp-packt">
+                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 8px;">During his nearly four-year
+                  tenure at Packt, Prashant advanced through three distinct roles:</p>
+
+                <div class="nested-timeline">
+                  <!-- Role 1 -->
+                  <div class="nested-item">
+                    <div class="nested-dot"></div>
+                    <div class="nested-role">Acquisition Editor Level 2</div>
+                    <div class="nested-dates">July 2019 – March 2020</div>
+                    <ul class="exp-bullets" style="border-top: none; padding-top: 0; margin-top: 0;">
+                      <li>Supported acquisition managers in building the live courses pipeline and participated in
+                        pilots for process/product improvement.</li>
+                      <li>Managed key account partnerships and executed all key deliverables between Packt and its
+                        partners.</li>
+                      <li>Supported the India Sales team in exploring revenue opportunities, created and owned the
+                        training module for live courses, and provided creative insights to marketing teams.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Role 2 -->
+                  <div class="nested-item">
+                    <div class="nested-dot"></div>
+                    <div class="nested-role">Project Consultant</div>
+                    <div class="nested-dates">February 2018 – June 2019</div>
+                    <ul class="exp-bullets" style="border-top: none; padding-top: 0; margin-top: 0;">
+                      <li>Collaborated with thought leaders to design live courses and successfully negotiated author
+                        contracts.</li>
+                      <li>Delivered 17 new live sessions with an average CSAT of 8.3, contributing to a total of 29 live
+                        sessions delivered with an average score of 8.2.</li>
+                      <li>Managed relationships to ensure author retention, coordinated across organizational teams for
+                        product delivery, assisted in developing procedures and SLAs, and trained 5 new project
+                        consultants.</li>
+                    </ul>
+                  </div>
+
+                  <!-- Role 3 -->
+                  <div class="nested-item">
+                    <div class="nested-dot"></div>
+                    <div class="nested-role">Technical Editor</div>
+                    <div class="nested-dates">August 2016 – January 2018</div>
+                    <ul class="exp-bullets" style="border-top: none; padding-top: 0; margin-top: 0;">
+                      <li>Published 18 technical titles, ensuring technical accuracy through rigorous code and content
+                        testing by following author instructions.</li>
+                      <li>Created articles, coached authors through the writing process, conducted market research for
+                        upcoming technologies, and formatted book content to house styles.</li>
+                      <li>Formulated in-house guidelines for the technical editor team and was appointed as a Subject
+                        Matter Expert (SME) for the TE committee.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-packt', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
+            </div>
           </div>
-          <p class="exp-subtext"
-            style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px; margin-top: -4px;">During this nearly
-            four-year tenure, advanced through three distinct roles:</p>
-          <ul class="exp-bullets">
-            <li><strong>Acquisition Editor Level 2 (Jul 2019 – Mar 2020):</strong> Supported acquisition managers in
-              building the live courses pipeline and participated in pilots for process/product improvement. Managed key
-              account partnerships and executed all key deliverables between Packt and its partners. Supported the India
-              Sales team in exploring revenue opportunities, created and owned the training module for live courses, and
-              provided creative insights to marketing teams.</li>
-            <li><strong>Project Consultant (Feb 2018 – Jun 2019):</strong> Collaborated with thought leaders to design
-              live courses and successfully negotiated author contracts. Delivered 17 new live sessions with an average
-              CSAT of 8.3 (contributing to a total of 29 live sessions delivered with an average score of 8.2). Managed
-              relationships to ensure author retention, coordinated across organizational teams for product delivery,
-              assisted in developing procedures and SLAs, and trained 5 new project consultants.</li>
-            <li><strong>Technical Editor (Aug 2016 – Jan 2018):</strong> Published 18 technical titles, ensuring
-              technical accuracy through rigorous code and content testing by following author instructions. Created
-              articles, coached authors through the writing process, conducted market research for upcoming
-              technologies, and formatted book content to house styles. Formulated in-house guidelines for the technical
-              editor team and was appointed as a Subject Matter Expert (SME) for the TE committee.</li>
-          </ul>
         </div>
 
         <!-- Exp 5 -->
-        <div class="timeline-item fade-in">
+        <div class="timeline-item left fade-in">
           <div class="timeline-dot"></div>
-          <div class="exp-header">
-            <div class="exp-company">Appco Group India <span class="exp-meta">· Jul 2015 – May 2016 · Mumbai,
-                India</span>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2015</div>
+            <div class="exp-card-content">
+              <div class="exp-company">Appco Group India</div>
+              <div class="exp-role">Corporate Trainer</div>
+              <div class="exp-meta">Jul 2015 – May 2016 · Mumbai</div>
+              <div class="exp-details-content" id="exp-appco">
+                <ul class="exp-bullets">
+                  <li><strong>Sales & Training:</strong> Conducted field sales and provided training in face-to-face
+                    marketing specifically focused on NGOs.</li>
+                </ul>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-appco', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
             </div>
-            <div class="exp-role">Corporate Trainer</div>
           </div>
-          <ul class="exp-bullets">
-            <li><strong>Sales & Training:</strong> Conducted field sales and provided training in face-to-face marketing
-              specifically focused on NGOs.</li>
-          </ul>
         </div>
+
       </div>
     </div>
   </section>
@@ -1648,6 +1961,44 @@
     if (typewriterElement) {
       setTimeout(typeWriter, 1000);
     }
+
+    // Experience Card Toggle
+    function toggleExp(id, btn) {
+      const content = document.getElementById(id);
+      const card = btn.closest('.exp-card');
+      const textSpan = btn.querySelector('.exp-toggle-text');
+
+      if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        content.style.maxHeight = '0px';
+        card.classList.remove('expanded');
+        textSpan.textContent = '+ View Details';
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        card.classList.add('expanded');
+        textSpan.textContent = '− Hide Details';
+      }
+    }
+
+    // Timeline Dot Animation Observer
+    const dotObserverOptions = {
+      root: null,
+      rootMargin: '0px 0px -100px 0px',
+      threshold: 0.5
+    };
+
+    const dotObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, dotObserverOptions);
+
+    setTimeout(() => {
+      document.querySelectorAll('.timeline-dot').forEach(dot => {
+        dotObserver.observe(dot);
+      });
+    }, 100);
   </script>
 </body>
 
