@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prashant Mishra | AI Product Builder & Operations Leader | Mumbai</title>
+  <meta name="description"
+    content="Mumbai-based AI generalist building AI-native products, automating workflows, and consulting for D2C brands. Open to full-time roles and freelance projects.">
+
+  <meta property="og:title" content="Prashant Mishra | AI Product Builder & Operations Leader">
+  <meta property="og:description"
+    content="Mumbai-based AI generalist. Building AIBNB, FrameFlow, and AiTribe. Open to full-time and freelance.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prashant Mishra | AI Product Builder">
+  <meta name="twitter:description" content="Building AI-native products from Mumbai. Open to full-time roles.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prashant Mishra",
+    "jobTitle": "AI Product Builder & Operations Leader",
+    "url": "",
+    "email": "735prashant@gmail.com",
+    "telephone": "+91-9820882232",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/prashant-m/",
+      "https://github.com/PrashantforAI"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #0A0A0A;
+      --bg-surface: #111111;
+      --bg-subtle: #1A1A1A;
+      --text-primary: #F0F0F0;
+      --text-secondary: #888888;
+      --text-muted: #555555;
+      --accent: #A8E6CF;
+      --accent-muted: #6BBF9A;
+
+      --font-primary: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Utility */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-spacing {
+      padding: 120px 0;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bg-alt {
+      background-color: #0D0D0D;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    /* Typography */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 48px;
+      color: var(--text-primary);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background: transparent;
+      padding: 24px 0;
+    }
+
+    nav.scrolled {
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--bg-subtle);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo {
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Subtle noise overlay */
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(var(--bg-subtle) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Animated profile border */
+    .hero-photo-container {
+      position: relative;
+      width: 128px;
+      height: 128px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-photo-container::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent), transparent, var(--accent));
+      animation: spin 4s linear infinite;
+      z-index: 1;
+    }
+
+    .hero-photo-container::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 230, 207, 0.06) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-photo-placeholder,
+    .hero-photo {
+      position: relative;
+      z-index: 2;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 4px;
+      background-color: var(--bg-subtle);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-photo-placeholder {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--accent);
+      display: none;
+    }
+
+    .hero-photo {
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-name {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+
+    .hero-roles {
+      font-size: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .hero-one-liner {
+      font-size: 18px;
+      color: #AAAAAA;
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--bg-primary);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .hero-social-pills {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .hero-social-pills a {
+      font-size: 12px;
+      color: #555555;
+      border: 1px solid #1A1A1A;
+      padding: 5px 12px;
+      border-radius: 100px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .hero-social-pills a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* About Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px;
+    }
+
+    .about-text p {
+      color: #CCCCCC;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      counter-reset: project;
+    }
+
+    .project-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--bg-subtle);
+      border-radius: 8px;
+      padding: 32px;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      counter-increment: project;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .project-card::before {
+      content: "0" counter(project);
+      font-size: 80px;
+      font-weight: 800;
+      color: rgba(168, 230, 207, 0.04);
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      font-family: var(--font-mono);
+      z-index: 0;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .project-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(168, 230, 207, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .project-status {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .status-live {
+      color: var(--accent);
+    }
+
+    .status-building {
+      color: var(--text-secondary);
+    }
+
+    .project-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-right: 60px;
+      /* Space for status */
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background-color: var(--bg-subtle);
+      color: var(--accent);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .project-link {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      align-self: flex-start;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--bg-subtle) 10%, var(--accent-muted) 50%, var(--bg-subtle) 90%);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 56px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32.5px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      box-shadow: 0 0 12px rgba(168, 230, 207, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      box-shadow: 0 0 20px rgba(168, 230, 207, 1);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+    }
+
+    .exp-company {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .exp-role {
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .exp-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .exp-bullets {
+      list-style-type: none;
+    }
+
+    .exp-bullets li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .skill-group {
+      background: #111111;
+      border: 1px solid #1A1A1A;
+      border-radius: 8px;
+      padding: 24px;
+      transition: border-color 0.3s ease;
+    }
+
+    .skill-group:hover {
+      border-color: rgba(168, 230, 207, 0.3);
+    }
+
+    .skill-group-label {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tag {
+      background-color: var(--bg-subtle);
+      color: var(--accent);
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 4px;
+    }
+
+    /* Contact Section */
+    #contact {
+      border-top: 1px solid var(--bg-subtle);
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-heading {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-size: 16px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Contact cards */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .contact-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--bg-subtle);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(168, 230, 207, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .contact-card-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+    }
+
+    .contact-card-value {
+      color: var(--accent);
+      font-size: 15px;
+      word-break: break-all;
+    }
+
+    .contact-link span {
+      color: var(--text-muted);
+    }
+
+    .contact-link.primary {
+      color: var(--accent);
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-form {
+      text-align: left;
+      display: grid;
+      gap: 16px;
+      background-color: var(--bg-surface);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--bg-subtle);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .form-control {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--bg-subtle);
+      color: var(--text-primary);
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--bg-subtle);
+      padding: 64px 0 32px;
+      background: radial-gradient(ellipse at top center, #151515 0%, #0A0A0A 100%);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-name {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 20px;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .social-pill {
+      font-size: 12px;
+      color: var(--text-secondary);
+      border: 1px solid var(--bg-subtle);
+      padding: 6px 12px;
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+
+    .social-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--bg-subtle);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .footer-copyright {
+      color: var(--text-muted);
+    }
+
+    .footer-built {
+      color: #333333;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section-spacing {
+        padding: 64px 0;
+      }
+
+      .hero-name {
+        font-size: 38px;
+        line-height: 1.1;
+      }
+
+      .hero-roles {
+        font-size: 15px;
+      }
+
+      .about-text p,
+      .project-desc,
+      .exp-bullets li,
+      .contact-sub {
+        font-size: 15px;
+      }
+
+      .about-grid,
+      .projects-grid,
+      .skills-grid,
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 48px;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+
+      .footer-nav {
+        justify-content: center;
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-surface);
+        border-bottom: 1px solid var(--bg-subtle);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: 32px;
+      }
+
+      .hero-roles {
+        font-size: 14px;
+      }
+
+      .stat-num {
+        font-size: 28px;
+      }
+
+      .section-spacing {
+        padding: 48px 0;
+      }
+
+      .footer-top {
+        gap: 24px;
+      }
+    }
+
+    /* Typewriter */
+    .typewriter-wrap {
+      display: inline-block;
+      min-height: 1.5em;
+    }
+
+    .typewriter-text {
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink-caret 0.75s step-end infinite;
+      padding-right: 4px;
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent;
+      }
+
+      50% {
+        border-color: var(--accent);
+      }
+    }
+
+    /* Availability badge */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(168, 230, 207, 0.08);
+      border: 1px solid rgba(168, 230, 207, 0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .availability-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.8);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">Prashant Mishra</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="section-spacing fade-in">
+    <div class="container">
+      <div class="hero-photo-container">
+        <!-- Placeholder -->
+        <div class="hero-photo-placeholder" id="photoPlaceholder">PM</div>
+        <!-- Actual Photo (img src will be populated later) -->
+        <img src="Images/PrashantPhoto.jpeg" alt="Prashant Mishra" class="hero-photo" id="actualPhoto">
+      </div>
+      <div class="availability-badge">
+        <span class="availability-dot"></span>
+        Open to full-time roles & freelance
+      </div>
+      <h1 class="hero-name">Prashant Mishra</h1>
+      <p class="hero-roles"><span class="typewriter-wrap"><span class="typewriter-text" id="typewriter"></span></span>
+      </p>
+      <p class="hero-one-liner">I run every facet of business with AI as my strategic assistant: building products,
+        automating workflows, and shipping things that work.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+      <div class="hero-social-pills">
+        <a href="https://github.com/PrashantforAI" target="_blank" rel="noopener noreferrer">↗ GitHub</a>
+        <a href="https://linkedin.com/in/prashant-m" target="_blank" rel="noopener noreferrer">↗ LinkedIn</a>
+        <a href="https://aitribe.co.in" target="_blank" rel="noopener noreferrer">↗ AiTribe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-spacing bg-alt">
+    <div class="container fade-in">
+      <span class="section-label">// about</span>
+      <h2 class="section-heading">About Me</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a Mumbai-based AI generalist who bridges the gap between business operations and AI product
+            development. With nearly a decade of experience across tech publishing, EdTech, cybersecurity, and
+            short-term rentals. I've always been close to the product, the process, and the people.</p>
+          <p>Over the last few years, I've gone deep on AI: building custom automation pipelines, shipping AI-native web
+            apps, and helping D2C brands create high-quality AI-generated media. I don't just consult on AI; I build
+            with it daily.</p>
+          <p>Currently building my own AI projects through AiTribe while actively looking for a full-time role where I
+            can bring this rare mix of operational leadership and AI product thinking to a team.</p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">40%</span>
+            <span class="stat-label">Workload reduction via AI tools</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">18</span>
+            <span class="stat-label">Technical titles published</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">29</span>
+            <span class="stat-label">Live training sessions delivered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Live AI products shipped</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section-spacing">
+    <div class="container fade-in">
+      <span class="section-label">// projects</span>
+      <h2 class="section-heading">Projects</h2>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card fade-in">
+          <span class="project-status status-live">Live</span>
+          <h3 class="project-title">AIBNB</h3>
+          <p class="project-desc">A modular AI agent system for the Indian short-term rental market. Features LLM-native
+            chat for 24/7 guest support and dynamic pricing models.</p>
+          <div class="project-tags">
+            <span class="tag">AI Agents</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Short-Term Rentals</span>
+          </div>
+          <a href="https://ai-bnb-india-883495399816.us-west1.run.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">View Project →</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card fade-in">
+          <span class="project-status status-building" style="color: var(--accent);">Service Available</span>
+          <h3 class="project-title">FrameFlow</h3>
+          <p class="project-desc">An AI-powered storyboarding tool for brands and creators. Currently offered as a
+            done-for-you service while being refined based on real-world use cases.</p>
+          <div class="project-tags">
+            <span class="tag">AI Storyboarding</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">Content</span>
+          </div>
+          <a href="https://github.com/PrashantforAI/frameflow-production" target="_blank" rel="noopener noreferrer"
+            class="project-link">View Project →</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card fade-in">
+          <span class="project-status status-live">Live</span>
+          <h3 class="project-title">AiTribe D2C Photography</h3>
+          <p class="project-desc">AI-generated product photography for D2C clothing brands: consistent, high-quality
+            images at a fraction of traditional photography costs.</p>
+          <div class="project-tags">
+            <span class="tag">AI Photography</span>
+            <span class="tag">D2C</span>
+            <span class="tag">Generative Media</span>
+          </div>
+          <a href="https://aitribe-d2-c-photography.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="project-link">View Project →</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card fade-in">
+          <span class="project-status status-building">Building</span>
+          <h3 class="project-title">AiTribe Agency</h3>
+          <p class="project-desc">My AI agency offering AI-native app development, automation pipelines, and AI media
+            services for businesses.</p>
+          <div class="project-tags">
+            <span class="tag">AI Agency</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Consulting</span>
+          </div>
+          <a href="https://aitribe.co.in" target="_blank" rel="noopener noreferrer" class="project-link">View Project
+            →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section-spacing bg-alt">
+    <div class="container fade-in">
+      <span class="section-label">// experience</span>
+      <h2 class="section-heading">Experience</h2>
+
+      <div class="timeline">
+        <!-- Exp 1 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="exp-header">
+            <div class="exp-company">Pine Stays <span class="exp-meta">· Nov 2022 – Jan 2026 · Mumbai, India</span>
+            </div>
+            <div class="exp-role">Head of Business Operations</div>
+          </div>
+          <ul class="exp-bullets">
+            <li><strong>Strategic Business Operations:</strong> Oversees end-to-end operations for this short-term
+              rental platform, including property analysis, content curation, budget management, and customer service to
+              ensure optimal performance.</li>
+            <li><strong>AI-Driven Automation:</strong> Focused heavily on AI integration by developing custom AI tools
+              to automate routine workflows. This resulted in reducing the manual data entry workload by 40% and
+              accelerating response times for guest inquiries and reviews.</li>
+            <li><strong>Data-Backed Decision Making:</strong> Leveraged Google automation and AI-powered analytics to
+              build robust databases for marketing. Utilized AI for price prediction and demand forecasting, which
+              directly enhanced operational efficiency and revenue optimization.</li>
+            <li><strong>Multi-Channel Sales Strategy:</strong> Designed and executed sales strategies utilizing
+              AI-driven lead scoring and channel attribution. This maximized the platform's visibility on Airbnb,
+              offline partners, and B2B relationships, ultimately leading to significant revenue growth.</li>
+            <li><strong>Guest Experience & Innovation:</strong> Used AI tools to analyze guest behavior and feedback to
+              enable targeted service improvements and create a personalized guest journey. Instituted a culture of
+              innovation by adopting the latest AI-powered property management SaaS, automating reporting dashboards,
+              and upskilling team members.</li>
+          </ul>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="exp-header">
+            <div class="exp-company">upGrad KnowledgeHut <span class="exp-meta">· Nov 2021 – Oct 2022 · Mumbai,
+                India</span>
+            </div>
+            <div class="exp-role">Content Acquisition and Strategy</div>
+          </div>
+          <ul class="exp-bullets">
+            <li><strong>Market Research:</strong> Led market research and competitive analysis for EdTech content across
+              emerging technology categories.</li>
+            <li><strong>Author & Course Management:</strong> Managed the title pool and contracted high-quality,
+              relevant authors and technical reviewers. Successfully contracted and worked with over 15 authors to
+              develop course ideas and flesh out course outlines, extracting maximum value from their expertise.</li>
+            <li><strong>Quality Assurance:</strong> Collaborated with the Content Team to manage titles and ensure that
+              courses were published on time while maintaining high quality.</li>
+          </ul>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="exp-header">
+            <div class="exp-company">EC-Council <span class="exp-meta">· Apr 2020 – May 2021 · Mumbai, India</span>
+            </div>
+            <div class="exp-role">Senior Executive Acquisition Specialist</div>
+          </div>
+          <ul class="exp-bullets">
+            <li><strong>Partnerships & Product Design:</strong> Teamed up with top industry talent, thought leaders,
+              evangelists, and tech influencers to design product and video courses. Managed the delivery of
+              cybersecurity training programs.</li>
+            <li><strong>Project Evaluation & Contracting:</strong> Familiarized with assigned projects to understand
+              customer requirements and market value to find the right instructional resources. Successfully negotiated
+              author contracts (covering advances, royalty rates, and schedules) while minimizing financial risks.</li>
+            <li><strong>Quality & Coaching:</strong> Evaluated author submissions, resolved errors to ensure they were
+              customer-friendly, and coached instructors alongside the editorial team to create quality video content
+              and supporting study materials.</li>
+          </ul>
+        </div>
+
+        <!-- Exp 4 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="exp-header">
+            <div class="exp-company">Packt <span class="exp-meta">· Aug 2016 – Mar 2020 · Mumbai, India</span></div>
+            <div class="exp-role">Acquisition Editor & Consultant</div>
+          </div>
+          <p class="exp-subtext"
+            style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px; margin-top: -4px;">During this nearly
+            four-year tenure, advanced through three distinct roles:</p>
+          <ul class="exp-bullets">
+            <li><strong>Acquisition Editor Level 2 (Jul 2019 – Mar 2020):</strong> Supported acquisition managers in
+              building the live courses pipeline and participated in pilots for process/product improvement. Managed key
+              account partnerships and executed all key deliverables between Packt and its partners. Supported the India
+              Sales team in exploring revenue opportunities, created and owned the training module for live courses, and
+              provided creative insights to marketing teams.</li>
+            <li><strong>Project Consultant (Feb 2018 – Jun 2019):</strong> Collaborated with thought leaders to design
+              live courses and successfully negotiated author contracts. Delivered 17 new live sessions with an average
+              CSAT of 8.3 (contributing to a total of 29 live sessions delivered with an average score of 8.2). Managed
+              relationships to ensure author retention, coordinated across organizational teams for product delivery,
+              assisted in developing procedures and SLAs, and trained 5 new project consultants.</li>
+            <li><strong>Technical Editor (Aug 2016 – Jan 2018):</strong> Published 18 technical titles, ensuring
+              technical accuracy through rigorous code and content testing by following author instructions. Created
+              articles, coached authors through the writing process, conducted market research for upcoming
+              technologies, and formatted book content to house styles. Formulated in-house guidelines for the technical
+              editor team and was appointed as a Subject Matter Expert (SME) for the TE committee.</li>
+          </ul>
+        </div>
+
+        <!-- Exp 5 -->
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="exp-header">
+            <div class="exp-company">Appco Group India <span class="exp-meta">· Jul 2015 – May 2016 · Mumbai,
+                India</span>
+            </div>
+            <div class="exp-role">Corporate Trainer</div>
+          </div>
+          <ul class="exp-bullets">
+            <li><strong>Sales & Training:</strong> Conducted field sales and provided training in face-to-face marketing
+              specifically focused on NGOs.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section-spacing">
+    <div class="container fade-in">
+      <span class="section-label">// skills</span>
+      <h2 class="section-heading">Skills & Stack</h2>
+
+      <div class="skills-grid">
+        <div class="skill-group fade-in">
+          <div class="skill-group-label">⚡ AI & Automation</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Google AI Studio</span>
+            <span class="skill-tag">Google Antigravity</span>
+            <span class="skill-tag">Vertex AI</span>
+            <span class="skill-tag">AI Agents</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">LLM Integration</span>
+            <span class="skill-tag">Zapier</span>
+            <span class="skill-tag">Make</span>
+            <span class="skill-tag">Weavy.ai</span>
+            <span class="skill-tag">Vibe Coding</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-in">
+          <div class="skill-group-label">📊 Operations & Business</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Business Operations</span>
+            <span class="skill-tag">Revenue Optimization</span>
+            <span class="skill-tag">Demand Forecasting</span>
+            <span class="skill-tag">Lead Scoring</span>
+            <span class="skill-tag">Multi-Channel Sales</span>
+            <span class="skill-tag">Customer Experience</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-in">
+          <div class="skill-group-label">🛠 Tools & Platforms</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Looker Studio</span>
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Zoho CRM</span>
+            <span class="skill-tag">Notion</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+
+        <div class="skill-group fade-in">
+          <div class="skill-group-label">🧠 Product & Strategy</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Rapid Prototyping</span>
+            <span class="skill-tag">Agentic Workflow</span>
+            <span class="skill-tag">AI-Native Products</span>
+            <span class="skill-tag">Market Research</span>
+            <span class="skill-tag">Content Strategy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-spacing bg-alt">
+    <div class="container fade-in">
+      <span class="section-label">// contact</span>
+      <div class="contact-content">
+        <h2 class="contact-heading">Open to Full-Time Roles & Freelance Projects</h2>
+        <p class="contact-sub">Whether you're looking for an AI-savvy operations leader, a product builder, or an AI
+          consultant for your brand, I'd love to talk.</p>
+
+        <div class="contact-cards">
+          <a href="mailto:735prashant@gmail.com" class="contact-card">
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">735prashant@gmail.com</div>
+          </a>
+          <a href="https://linkedin.com/in/prashant-m" target="_blank" rel="noopener noreferrer" class="contact-card">
+            <div class="contact-card-label">LinkedIn</div>
+            <div class="contact-card-value">linkedin.com/in/prashant-m</div>
+          </a>
+          <a href="tel:+919820882232" class="contact-card">
+            <div class="contact-card-label">Phone</div>
+            <div class="contact-card-value">+91-9820882232</div>
+          </a>
+        </div>
+
+        <form class="contact-form fade-in" id="contactForm" action="https://formspree.io/f/mwvnywjy" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required
+              placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="role">I am a...</label>
+            <select id="role" name="role" class="form-control"
+              style="background-color: var(--bg-primary); color: var(--text-primary);">
+              <option value="">Select one</option>
+              <option value="Recruiter">Recruiter</option>
+              <option value="Hiring Manager">Hiring Manager</option>
+              <option value="Potential Client">Potential Client</option>
+              <option value="Collaborator">Collaborator</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" required
+              placeholder="Tell me about the role or project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 8px;" id="submitBtn">Send Message</button>
+          <div id="formSuccess" style="display:none; color: var(--accent); margin-top: 12px; font-weight: 500;">✓
+            Message sent! I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container fade-in" style="transform:none; opacity:1;">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-name">Prashant Mishra</div>
+          <div class="footer-tagline">Mumbai · AI Product Builder</div>
+        </div>
+        <div class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/PrashantforAI" target="_blank" rel="noopener noreferrer"
+            class="social-pill">GitHub</a>
+          <a href="https://linkedin.com/in/prashant-m" target="_blank" rel="noopener noreferrer"
+            class="social-pill">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">© 2026 Prashant Mishra</div>
+        <div class="footer-built">Built with AI</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation Scroll Effect
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        mobileMenuBtn.textContent = '✕';
+      } else {
+        mobileMenuBtn.textContent = '☰';
+      }
+    });
+
+    // Close mobile menu when a link is clicked
+    const links = document.querySelectorAll('.nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.textContent = '☰';
+        }
+      });
+    });
+
+    // Intersection Observer for Fade-In Animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optional: stop observing once it's visible
+          // observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Active Nav Link Highlighting based on scroll position
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').includes(current)) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Typewriter Effect
+    const roles = [
+      "AI Product Builder",
+      "Operations Leader",
+      "Freelance AI Consultant",
+      "Agentic Workflow Designer",
+      "Vibe Coder"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typewriterElement = document.getElementById('typewriter');
+
+    function typeWriter() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = 100;
+      if (isDeleting) {
+        typeSpeed /= 2; // Delete faster
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        // Pause at end
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500; // Pause before typing next
+      }
+
+      setTimeout(typeWriter, typeSpeed);
+    }
+
+    // Form submission via AJAX to Formspree
+    const form = document.getElementById("contactForm");
+
+    // Check if form exists
+    if (form) {
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const status = document.getElementById("formSuccess");
+        const btn = document.getElementById("submitBtn");
+        const data = new FormData(event.target);
+        const originalBtnText = btn.innerHTML;
+
+        btn.innerHTML = "Sending...";
+        btn.disabled = true;
+
+        fetch("https://formspree.io/f/mwvnywjy", {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            status.innerHTML = "✓ Message sent! I'll get back to you soon.";
+            status.style.display = "block";
+            form.reset();
+            // Optional: Hide form fields but keep success message
+            Array.from(form.elements).forEach(el => {
+              if (el.id !== 'formSuccess') el.style.display = 'none';
+            });
+            btn.style.display = 'none';
+          } else {
+            response.json().then(data => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                status.style.color = "#ff6b6b";
+              } else {
+                status.innerHTML = "Oops! There was a problem submitting your form";
+                status.style.color = "#ff6b6b";
+              }
+              status.style.display = "block";
+              btn.innerHTML = "Try Again";
+              btn.disabled = false;
+            })
+          }
+        }).catch(error => {
+          status.innerHTML = "Oops! There was a problem submitting your form";
+          status.style.color = "#ff6b6b";
+          status.style.display = "block";
+          btn.innerHTML = "Try Again";
+          btn.disabled = false;
+        });
+      }
+      form.addEventListener("submit", handleSubmit);
+    }
+
+    // Start typewriter
+    if (typewriterElement) {
+      setTimeout(typeWriter, 1000);
+    }
+  </script>
+</body>
+
+</html>
