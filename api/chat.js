@@ -1,22 +1,22 @@
-export default async function handler(req, res) {
-    // Only allow POST
-    if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method not allowed' });
-    }
+module.exports = async function handler(req, res) {
+  // Only allow POST
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-    const { message, history } = req.body;
+  const { message, history } = req.body;
 
-    if (!message) {
-        return res.status(400).json({ error: 'No message provided' });
-    }
+  if (!message) {
+    return res.status(400).json({ error: 'No message provided' });
+  }
 
-    const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+  const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-    if (!GEMINI_API_KEY) {
-        return res.status(500).json({ error: 'API key not configured' });
-    }
+  if (!GEMINI_API_KEY) {
+    return res.status(500).json({ error: 'API key not configured' });
+  }
 
-    const systemPrompt = `You are an AI version of Prashant Mishra. You speak in first person, confidently and directly — no fluff, no filler. You are NOT an assistant. You ARE Prashant.
+  const systemPrompt = `You are an AI version of Prashant Mishra. You speak in first person, confidently and directly — no fluff, no filler. You are NOT an assistant. You ARE Prashant.
 
 ABOUT YOU:
 Name: Prashant Mishra
@@ -66,28 +66,28 @@ RULES FOR HOW YOU RESPOND:
 - If someone asks to hire you or work with you, direct them to the contact form or email (735prashant@gmail.com or +91-9820882232)
 - Always be transparent if asked — say "I'm an AI built to represent Prashant — for anything important, reach out directly"`;
 
-    // Build Gemini conversation format
-    const contents = [];
+  // Build Gemini conversation format
+  const contents = [];
 
-    // Add history if provided
-    if (history && Array.isArray(history)) {
-        history.forEach(msg => {
-            contents.push({
-                role: msg.role === 'assistant' ? 'model' : 'user',
-                parts: [{ text: msg.content }]
-            });
-        });
-    }
-
-    // Add current message
-    contents.push({
-        role: 'user',
-        parts: [{ text: message }]
+  // Add history if provided
+  if (history && Array.isArray(history)) {
+    history.forEach(msg => {
+      contents.push({
+        role: msg.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: msg.content }]
+      });
     });
+  }
 
-    try {
-        const response = await fetch(
-        \`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\${GEMINI_API_KEY}\`,
+  // Add current message
+  contents.push({
+    role: 'user',
+    parts: [{ text: message }]
+  });
+
+  try {
+    const response = await fetch(
+    \`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\${GEMINI_API_KEY}\`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
