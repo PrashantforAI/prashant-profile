@@ -2375,7 +2375,7 @@
 
   <!-- AI Chat Widget Logic -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    (function initAiChatWidget() {
       const fab = document.getElementById('chat-fab');
       const panel = document.getElementById('chat-panel');
       const closeBtn = document.getElementById('chat-close');
@@ -2386,6 +2386,11 @@
       const messagesContainer = document.getElementById('chat-messages');
       const typingIndicator = document.getElementById('chat-typing');
       const suggestions = document.getElementById('chat-suggestions');
+
+      if (!fab || !panel) {
+        console.warn('AI Chat Widget: Missing required elements.');
+        return;
+      }
 
       let chatHistory = [];
       let isWaiting = false;
@@ -2427,14 +2432,14 @@
           suggestions.style.display = 'none';
         }
         const div = document.createElement('div');
-        div.className = \`chat-bubble \${isUser ? 'user-bubble' : 'ai-bubble'}\`;
-        
+        div.className = `chat-bubble ${isUser ? 'user-bubble' : 'ai-bubble'}`;
+
         // Handle basic markdown bold and newlines for cleaner output
-        text = text.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
-        text = text.replace(/\\n/g, '<br>');
-        
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/\n/g, '<br>');
+
         div.innerHTML = text; // Now handles HTML safely enough for this context
-        
+
         messagesContainer.appendChild(div);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       }
@@ -2463,11 +2468,11 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: text, history: chatHistory })
           });
-          
+
           const data = await res.json();
-          
+
           typingIndicator.classList.add('hidden');
-          
+
           if (!res.ok) {
             throw new Error(data.error || 'API Error');
           }
@@ -2487,7 +2492,7 @@
           messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
       });
-    });
+    })();
   </script>
 </body>
 
