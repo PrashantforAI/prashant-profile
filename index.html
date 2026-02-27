@@ -58,6 +58,7 @@
       --text-muted: #555555;
       --accent: #A8E6CF;
       --accent-muted: #6BBF9A;
+      --watermark-color: rgba(168, 230, 207, 0.10);
 
       --font-primary: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -426,7 +427,7 @@
       content: "0" counter(project);
       font-size: 80px;
       font-weight: 800;
-      color: rgba(168, 230, 207, 0.04);
+      color: var(--watermark-color);
       position: absolute;
       top: -10px;
       left: 16px;
@@ -612,6 +613,11 @@
       z-index: 1;
     }
 
+    .exp-card>* {
+      position: relative;
+      z-index: 1;
+    }
+
     .exp-card:hover {
       border-color: rgba(168, 230, 207, 0.4);
     }
@@ -622,22 +628,15 @@
 
     .exp-card-bg-year {
       position: absolute;
-      bottom: 12px;
-      font-size: 72px;
+      top: -10px;
+      left: 16px;
+      font-size: 80px;
       font-weight: 800;
-      color: rgba(168, 230, 207, 0.03);
+      color: var(--watermark-color);
       font-family: var(--font-mono);
       pointer-events: none;
       z-index: 0;
       line-height: 1;
-    }
-
-    .timeline-item.left .exp-card-bg-year {
-      right: 16px;
-    }
-
-    .timeline-item.right .exp-card-bg-year {
-      left: 16px;
     }
 
     .exp-card-content {
@@ -1039,6 +1038,11 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+      :root {
+        --watermark-color: rgba(168, 230, 207, 0.05);
+        /* Softer on mobile */
+      }
+
       .section-spacing {
         padding: 64px 0;
       }
@@ -1106,11 +1110,6 @@
         width: calc(100% - 48px);
       }
 
-      .timeline-item.left .exp-card-bg-year,
-      .timeline-item.right .exp-card-bg-year {
-        right: 16px;
-        left: auto;
-      }
 
       .about-grid,
       .projects-grid,
