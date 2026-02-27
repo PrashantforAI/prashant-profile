@@ -2027,6 +2027,57 @@
       position: relative;
       z-index: 1001;
       transition: transform 0.2s;
+      animation: fabBounce 10s ease-in-out infinite;
+    }
+
+    .chat-fab::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(168, 230, 207, 0.4);
+      z-index: -1;
+      animation: fabPing 2.5s ease-out infinite;
+    }
+
+    .chat-fab.chat-active,
+    .chat-fab.chat-active::before {
+      animation: none !important;
+    }
+
+    @keyframes fabPing {
+      0% {
+        transform: scale(1);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fabBounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      30% {
+        transform: translateY(-6px);
+      }
+
+      60% {
+        transform: translateY(-3px);
+      }
+
+      80% {
+        transform: translateY(-5px);
+      }
     }
 
     .chat-fab:hover {
@@ -2406,6 +2457,7 @@
       // Toggle panel
       function togglePanel() {
         panel.classList.toggle('open');
+        fab.classList.toggle('chat-active');
         tooltip.classList.remove('show');
         if (panel.classList.contains('open')) {
           input.focus();
@@ -2436,6 +2488,11 @@
 
         // Handle basic markdown bold and newlines for cleaner output
         text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        // Auto-link URLs
+        const urlRegex = /(https?:\/\/[^\s<>"]+)/g;
+        text = text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #A8E6CF; text-decoration: underline; word-break: break-all;">$1</a>');
+
         text = text.replace(/\n/g, '<br>');
 
         div.innerHTML = text; // Now handles HTML safely enough for this context
