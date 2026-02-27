@@ -2491,8 +2491,13 @@
 
         const urlRegex = /(?:https?:\/\/|(?<![\w])(?=(?:www\.|[\w-]+\.(?:com|in|io|co|ai|app|dev|org|net)\/)))([\w.-]+(?:\/[^\s<>"]*)?)/gi;
         text = text.replace(urlRegex, (match) => {
+          let trailingPunc = '';
+          if (/[.,!?;:]$/.test(match)) {
+            trailingPunc = match.slice(-1);
+            match = match.slice(0, -1);
+          }
           const href = match.startsWith('http') ? match : 'https://' + match;
-          return `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color: #A8E6CF; text-decoration: underline; word-break: break-all;">${match}</a>`;
+          return `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color: #A8E6CF; text-decoration: underline; word-break: break-all;">${match}</a>${trailingPunc}`;
         });
 
         text = text.replace(/\n/g, '<br>');
