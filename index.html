@@ -1999,6 +1999,496 @@
       });
     }, 100);
   </script>
+
+  <!-- AI Chat Widget Styles -->
+  <style>
+    /* Chat Widget Container */
+    #ai-chat-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      font-family: var(--font-primary, sans-serif);
+    }
+
+    /* Floating Action Button */
+    .chat-fab {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #A8E6CF;
+      color: #0A0A0A;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1001;
+      transition: transform 0.2s;
+    }
+
+    .chat-fab:hover {
+      transform: scale(1.05);
+    }
+
+    /* Tooltip */
+    .chat-tooltip {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: #111111;
+      border: 1px solid #1A1A1A;
+      color: #A8E6CF;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .chat-tooltip.show {
+      opacity: 1;
+    }
+
+    /* Chat Panel */
+    .chat-panel {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 360px;
+      height: 520px;
+      background: #0A0A0A;
+      border: 1px solid #1A1A1A;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .chat-panel.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media (max-width: 480px) {
+      .chat-panel {
+        position: fixed;
+        bottom: 90px;
+        right: 16px;
+        width: calc(100vw - 32px);
+        height: 70vh;
+      }
+    }
+
+    /* Chat Header */
+    .chat-header {
+      background: #111111;
+      border-bottom: 1px solid #1A1A1A;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #A8E6CF;
+      color: #0A0A0A;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #F0F0F0;
+      line-height: 1.2;
+    }
+
+    .chat-sub {
+      font-size: 11px;
+      color: #555555;
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: #555555;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .chat-close:hover {
+      color: #F0F0F0;
+    }
+
+    /* Messages Area */
+    .chat-messages {
+      flex-grow: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-bubble {
+      font-size: 14px;
+      padding: 10px 14px;
+      max-width: 85%;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .user-bubble {
+      align-self: flex-end;
+      background: #1A1A1A;
+      color: #F0F0F0;
+      border-radius: 12px 12px 4px 12px;
+    }
+
+    .ai-bubble {
+      align-self: flex-start;
+      background: #111111;
+      border: 1px solid #1A1A1A;
+      color: #CCCCCC;
+      border-radius: 12px 12px 12px 4px;
+    }
+
+    /* Suggested Questions */
+    .chat-suggestions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+      align-items: flex-start;
+    }
+
+    .chat-suggestion-btn {
+      background: #1A1A1A;
+      border: 1px solid #1A1A1A;
+      color: #A8E6CF;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      text-align: left;
+    }
+
+    .chat-suggestion-btn:hover {
+      border-color: #A8E6CF;
+    }
+
+    /* Typing Indicator */
+    .chat-typing {
+      padding: 0 16px 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .chat-typing.hidden {
+      display: none;
+    }
+
+    .typing-dots {
+      padding: 8px 12px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      width: fit-content;
+    }
+
+    .typing-dots span {
+      width: 4px;
+      height: 4px;
+      background: #CCCCCC;
+      border-radius: 50%;
+      animation: typePulse 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dots span:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+
+    .typing-dots span:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+
+    @keyframes typePulse {
+
+      0%,
+      80%,
+      100% {
+        transform: scale(0);
+        opacity: 0.4;
+      }
+
+      40% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .typing-label {
+      font-size: 12px;
+      color: #555555;
+      margin-left: 4px;
+    }
+
+    /* Input Area */
+    .chat-input-area {
+      background: #111111;
+      border-top: 1px solid #1A1A1A;
+      padding: 12px;
+      display: flex;
+      gap: 8px;
+    }
+
+    #chat-input {
+      flex-grow: 1;
+      background: #0A0A0A;
+      border: 1px solid #1A1A1A;
+      border-radius: 4px;
+      color: #F0F0F0;
+      font-size: 14px;
+      padding: 10px 12px;
+      outline: none;
+    }
+
+    #chat-input:focus {
+      border-color: #A8E6CF;
+    }
+
+    #chat-send {
+      background: #A8E6CF;
+      color: #0A0A0A;
+      border: none;
+      border-radius: 4px;
+      padding: 0 16px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    #chat-send:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .chat-footer {
+      background: #111111;
+      text-align: center;
+      font-size: 10px;
+      color: #333333;
+      padding-bottom: 8px;
+    }
+  </style>
+
+  <!-- AI Chat Widget HTML -->
+  <div id="ai-chat-widget">
+    <!-- Tooltip -->
+    <div id="chat-tooltip" class="chat-tooltip">Ask me anything →</div>
+
+    <!-- Floating Button -->
+    <button id="chat-fab" class="chat-fab" aria-label="Open AI Chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+
+    <!-- Chat Panel -->
+    <div id="chat-panel" class="chat-panel">
+      <!-- Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">PM</div>
+          <div>
+            <div class="chat-name">Prashant Mishra</div>
+            <div class="chat-sub">AI version · usually instant</div>
+          </div>
+        </div>
+        <button id="chat-close" class="chat-close">×</button>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="chat-messages" class="chat-messages">
+        <!-- Initial AI Message -->
+        <div class="chat-bubble ai-bubble">
+          Hey 👋 I'm an AI version of Prashant — ask me anything about my work, projects, or what I'm looking for. I'll
+          give you straight answers.
+        </div>
+
+        <!-- Suggested Questions -->
+        <div id="chat-suggestions" class="chat-suggestions">
+          <button class="chat-suggestion-btn">What have you built?</button>
+          <button class="chat-suggestion-btn">What roles are you open to?</button>
+          <button class="chat-suggestion-btn">How do you use AI in your work?</button>
+        </div>
+      </div>
+
+      <!-- Typing Indicator (Hidden by default) -->
+      <div id="chat-typing" class="chat-typing hidden">
+        <div class="chat-bubble ai-bubble typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="typing-label">Prashant is thinking...</div>
+      </div>
+
+      <!-- Input Area -->
+      <form id="chat-form" class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type your message..." autocomplete="off">
+        <button type="submit" id="chat-send">Send</button>
+      </form>
+
+      <div class="chat-footer">AI · Powered by Gemini · Not the real Prashant</div>
+    </div>
+  </div>
+
+  <!-- AI Chat Widget Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fab = document.getElementById('chat-fab');
+      const panel = document.getElementById('chat-panel');
+      const closeBtn = document.getElementById('chat-close');
+      const tooltip = document.getElementById('chat-tooltip');
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const sendBtn = document.getElementById('chat-send');
+      const messagesContainer = document.getElementById('chat-messages');
+      const typingIndicator = document.getElementById('chat-typing');
+      const suggestions = document.getElementById('chat-suggestions');
+
+      let chatHistory = [];
+      let isWaiting = false;
+
+      // Tooltip logic
+      setTimeout(() => {
+        if (!panel.classList.contains('open')) {
+          tooltip.classList.add('show');
+          setTimeout(() => tooltip.classList.remove('show'), 4000);
+        }
+      }, 8000);
+
+      // Toggle panel
+      function togglePanel() {
+        panel.classList.toggle('open');
+        tooltip.classList.remove('show');
+        if (panel.classList.contains('open')) {
+          input.focus();
+        }
+      }
+
+      fab.addEventListener('click', togglePanel);
+      closeBtn.addEventListener('click', togglePanel);
+
+      // Handle suggestions
+      document.querySelectorAll('.chat-suggestion-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          input.value = btn.textContent;
+          if (suggestions) {
+            suggestions.style.display = 'none';
+          }
+          form.dispatchEvent(new Event('submit'));
+        });
+      });
+
+      // Render message
+      function addBubble(text, isUser) {
+        if (suggestions && isUser) {
+          suggestions.style.display = 'none';
+        }
+        const div = document.createElement('div');
+        div.className = \`chat-bubble \${isUser ? 'user-bubble' : 'ai-bubble'}\`;
+        
+        // Handle basic markdown bold and newlines for cleaner output
+        text = text.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+        text = text.replace(/\\n/g, '<br>');
+        
+        div.innerHTML = text; // Now handles HTML safely enough for this context
+        
+        messagesContainer.appendChild(div);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Handle form submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text || isWaiting) return;
+
+        // User message
+        input.value = '';
+        addBubble(text, true);
+        chatHistory.push({ role: 'user', content: text });
+
+        // UI wait state
+        isWaiting = true;
+        input.disabled = true;
+        sendBtn.disabled = true;
+        typingIndicator.classList.remove('hidden');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, history: chatHistory })
+          });
+          
+          const data = await res.json();
+          
+          typingIndicator.classList.add('hidden');
+          
+          if (!res.ok) {
+            throw new Error(data.error || 'API Error');
+          }
+
+          addBubble(data.reply, false);
+          chatHistory.push({ role: 'assistant', content: data.reply });
+
+        } catch (err) {
+          console.error('Chat error:', err);
+          typingIndicator.classList.add('hidden');
+          addBubble('Something went wrong — reach out at 735prashant@gmail.com', false);
+        } finally {
+          isWaiting = false;
+          input.disabled = false;
+          sendBtn.disabled = false;
+          input.focus();
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
