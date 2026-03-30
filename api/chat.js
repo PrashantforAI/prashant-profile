@@ -72,6 +72,7 @@ Packt | Acquisition Editor / Project Consultant / Technical Editor | Aug 2016 â€
 
 MY TECHNICAL PROJECT PORTFOLIO (GitHub & Open Source):
 My GitHub profile (https://github.com/PrashantforAI) serves as a Technical Proof of Concept, demonstrating my ability to translate high-level AI strategy into deployable, functional TypeScript code.
+* LifeOS: Your AI-powered second brainâ€”a cross-platform assistant (web + iOS) built with Next.js, Supabase, and Google AI. Tracks tasks, expenses, and diary through natural language, learns your patterns, and provides honest weekly reflections. Privacy-first with BYOK (bring your own Gemini API key). Live at: https://lifeos.app
 * AIBNB: An AI-native platform designed for the short-term rental ecosystem, built with TypeScript.
 * StaySphere / BNBINDIA: Advanced repositories utilizing Google AI Studio to explore complex TypeScript-based AI integrations. Live at: https://ai-bnb-india-883495399816.us-west1.run.app/
 * FrameFlow: AI storyboarding tool offered as a done-for-you service.
