@@ -102,7 +102,13 @@ RULES FOR HOW YOU RESPOND:
 
   // Add history if provided
   if (history && Array.isArray(history)) {
-    history.forEach(msg => {
+    history.forEach((msg, index) => {
+      // If this is the last message in history and it matches the current message, 
+      // we'll skip it here and add it manually at the end to keep the format clean,
+      // or just ensure we don't have two consecutive user messages.
+      if (index === history.length - 1 && msg.content === message && msg.role === 'user') {
+        return;
+      }
       contents.push({
         role: msg.role === 'assistant' ? 'model' : 'user',
         parts: [{ text: msg.content }]
