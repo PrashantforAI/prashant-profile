@@ -307,6 +307,7 @@
     .hero-ctas {
       display: flex;
       gap: 16px;
+      justify-content: center;
     }
 
     .btn {
@@ -515,6 +516,188 @@
 
     .project-link:hover {
       text-decoration: underline;
+    }
+
+    /* Featured Project (LifeOS) Refinement */
+    .featured-project {
+      margin-bottom: 60px;
+      padding: 0 0 40px 0;
+      border-bottom: 1px solid var(--bg-subtle);
+    }
+
+    .featured-project-card {
+      /* Integrated look: no bg/border */
+      padding: 20px 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(168, 230, 207, 0.05);
+      border: 1px solid rgba(168, 230, 207, 0.3);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: none;
+    }
+
+    .featured-badge::before {
+      content: '★';
+      font-size: 10px;
+    }
+
+    .featured-header {
+      margin-bottom: 16px;
+    }
+
+    .featured-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .featured-title span {
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .featured-tagline {
+      font-size: 20px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .featured-main {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .featured-description {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .featured-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .featured-list-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .featured-list-icon {
+      font-size: 20px;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .featured-list-text strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .featured-list-text p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .featured-modules {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--bg-subtle);
+      border-radius: 12px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .module-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--bg-subtle);
+      padding: 12px 16px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .module-card:hover {
+      border-color: var(--accent);
+      transform: translateX(8px);
+      box-shadow: 0 4px 20px rgba(168, 230, 207, 0.05);
+    }
+
+    .module-icon {
+      font-size: 16px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-subtle);
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .module-card:hover .module-icon {
+      background-color: rgba(168, 230, 207, 0.1);
+    }
+
+    .module-info strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+      font-weight: 600;
+    }
+
+    .module-info span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .featured-actions {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .featured-main {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .featured-title { font-size: 42px; }
+      .featured-badge { position: relative; margin-bottom: 24px; align-self: flex-start; }
     }
 
     /* Experience Section (Alternating Timeline) */
@@ -1142,6 +1325,47 @@
         width: 100%;
       }
 
+      /* Featured Project Mobile Fix */
+      .featured-project {
+        margin-bottom: 48px;
+        padding-bottom: 48px;
+      }
+
+      .featured-title {
+        font-size: 38px;
+        letter-spacing: -0.02em;
+      }
+
+      .featured-tagline {
+        font-size: 16px;
+      }
+
+      .featured-main {
+        gap: 40px;
+      }
+
+      .featured-description {
+        font-size: 15px;
+        margin-bottom: 32px;
+      }
+
+      .featured-list {
+        gap: 20px;
+      }
+
+      .featured-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .featured-modules {
+        padding: 20px;
+      }
+
+      .module-card:hover {
+        transform: none; /* Disable horizontal slide on mobile touch */
+      }
+
       .contact-links {
         flex-direction: column;
         gap: 16px;
@@ -1371,22 +1595,101 @@
       <span class="section-label">// projects</span>
       <h2 class="section-heading">Projects</h2>
 
+      <!-- Featured Project: LifeOS -->
+      <div class="featured-project fade-in">
+        <div class="featured-project-card">
+          <div class="featured-badge">FEATURED PROJECT</div>
+
+          <div class="featured-header">
+            <h3 class="featured-title">Life<span>OS</span></h3>
+            <p class="featured-tagline">Your AI-Powered Second Brain</p>
+          </div>
+
+          <div class="featured-main">
+            <div class="featured-left">
+              <p class="featured-description">
+                A highly personalized, cross-platform assistant that tracks your life—Tasks, Expenses, and Diary—through
+                natural language. It learns your patterns, identifies habits, and provides honest, insight-driven
+                reflections.
+              </p>
+
+              <ul class="featured-list">
+                <li class="featured-list-item">
+                  <div class="featured-list-icon">🧠</div>
+                  <div class="featured-list-text">
+                    <strong>Intelligent Chat</strong>
+                    <p>Router Agent auto-detects task, expense, or journal entries from natural language.</p>
+                  </div>
+                </li>
+                <li class="featured-list-item">
+                  <div class="featured-list-icon">📊</div>
+                  <div class="featured-list-text">
+                    <strong>Life Modules</strong>
+                    <p>Specialized engines for agenda management, finance tracking, and journaling.</p>
+                  </div>
+                </li>
+                <li class="featured-list-item">
+                  <div class="featured-list-icon">🛡️</div>
+                  <div class="featured-list-text">
+                    <strong>Privacy First</strong>
+                    <p>Your data is yours—export as JSON, or bring your own Gemini API key (BYOK).</p>
+                  </div>
+                </li>
+                <li class="featured-list-item">
+                  <div class="featured-list-icon">📱</div>
+                  <div class="featured-list-text">
+                    <strong>Cross-Platform</strong>
+                    <p>Seamlessly built for Web and iOS using Next.js and PWA standards.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="featured-actions">
+                <a href="https://lifeos-aitribe.vercel.app/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-primary">Launch App →</a>
+                <a href="https://github.com/PrashantforAI" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-secondary">View Code →</a>
+              </div>
+            </div>
+
+            <div class="featured-right">
+              <div class="featured-modules">
+                <div class="module-card">
+                  <div class="module-icon">🧠</div>
+                  <div class="module-info">
+                    <strong>The Brain (AI Chat)</strong>
+                    <span>Natural language input for everything</span>
+                  </div>
+                </div>
+                <div class="module-card">
+                  <div class="module-icon">✅</div>
+                  <div class="module-info">
+                    <strong>Task Engine</strong>
+                    <span>Smart priority management</span>
+                  </div>
+                </div>
+                <div class="module-card">
+                  <div class="module-icon">💰</div>
+                  <div class="module-info">
+                    <strong>Finance Tracker</strong>
+                    <span>Budget limits & spending alerts</span>
+                  </div>
+                </div>
+                <div class="module-card">
+                  <div class="module-icon">📖</div>
+                  <div class="module-info">
+                    <strong>Digital Diary</strong>
+                    <span>Mood trends & weekly insights</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card fade-in">
-          <span class="project-status status-live">Live</span>
-          <h3 class="project-title">LifeOS</h3>
-          <p class="project-desc">Your AI-powered second brain. A cross-platform assistant that tracks tasks, expenses, and diary through natural language. Learns your patterns and provides honest, insight-driven reflections.</p>
-          <div class="project-tags">
-            <span class="tag">AI Assistant</span>
-            <span class="tag">Productivity</span>
-            <span class="tag">Personal Analytics</span>
-          </div>
-          <a href="https://lifeos.app" target="_blank" rel="noopener noreferrer"
-            class="project-link">Launch App →</a>
-        </div>
-
-        <!-- Project 2 -->
         <div class="project-card fade-in">
           <span class="project-status status-live">Live</span>
           <h3 class="project-title">AIBNB</h3>
@@ -1401,7 +1704,7 @@
             class="project-link">View Project →</a>
         </div>
 
-        <!-- Project 3 -->
+        <!-- Project 2 -->
         <div class="project-card fade-in">
           <span class="project-status status-building" style="color: var(--accent);">Service Available</span>
           <h3 class="project-title">FrameFlow</h3>
@@ -1456,8 +1759,37 @@
       <h2 class="section-heading">Experience</h2>
 
       <div class="timeline">
-        <!-- Exp 1 -->
+        <!-- New Current Exp: AI Tribe -->
         <div class="timeline-item left fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-connector"></div>
+          <div class="exp-card">
+            <div class="exp-card-bg-year">2026</div>
+            <div class="exp-card-content">
+              <div class="exp-company">AiTribe / Independent</div>
+              <div class="exp-role">Founder & AI Product Builder</div>
+              <div class="exp-meta">Jan 2026 — Present</div>
+              <div class="exp-details-content" id="exp-aitribe">
+                <ul class="exp-bullets">
+                  <li><strong>Product Portfolio:</strong> Built and shipped 5+ live AI products including LifeOS, AIBNB,
+                    and AiTribe Photography.</li>
+                  <li><strong>Tech Stack:</strong> Developed LLM-native applications using TypeScript, Next.js, and
+                    Google AI Studio.</li>
+                  <li><strong>Ops Efficiency:</strong> Created automation pipelines reducing operational workload by 40%.
+                  </li>
+                  <li><strong>Consulting:</strong> Offered AI consulting and done-for-you services for D2C brands.</li>
+                </ul>
+              </div>
+              <button class="exp-toggle-btn" onclick="toggleExp('exp-aitribe', this)">
+                <span class="exp-toggle-text">+ View Details</span>
+                <span class="exp-toggle-icon">›</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exp 1 -->
+        <div class="timeline-item right fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-connector"></div>
           <div class="exp-card">
@@ -1495,7 +1827,7 @@
         </div>
 
         <!-- Exp 2 -->
-        <div class="timeline-item right fade-in">
+        <div class="timeline-item left fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-connector"></div>
           <div class="exp-card">
@@ -1525,7 +1857,7 @@
         </div>
 
         <!-- Exp 3 -->
-        <div class="timeline-item left fade-in">
+        <div class="timeline-item right fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-connector"></div>
           <div class="exp-card">
@@ -1557,7 +1889,7 @@
         </div>
 
         <!-- Exp 4 -->
-        <div class="timeline-item right fade-in">
+        <div class="timeline-item left fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-connector"></div>
           <div class="exp-card">
@@ -1627,7 +1959,7 @@
         </div>
 
         <!-- Exp 5 -->
-        <div class="timeline-item left fade-in">
+        <div class="timeline-item right fade-in">
           <div class="timeline-dot"></div>
           <div class="timeline-connector"></div>
           <div class="exp-card">

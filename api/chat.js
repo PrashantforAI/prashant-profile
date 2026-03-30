@@ -100,26 +100,43 @@ RULES FOR HOW YOU RESPOND:
   // Build Gemini conversation format
   const contents = [];
 
-  // Add history if provided
+  // Filter history to ensure role alternation (User-Model-User-Model)
+  // Gemini requires the conversation to start with a User message and strictly alternate.
   if (history && Array.isArray(history)) {
-    history.forEach((msg, index) => {
-      // If this is the last message in history and it matches the current message, 
-      // we'll skip it here and add it manually at the end to keep the format clean,
-      // or just ensure we don't have two consecutive user messages.
-      if (index === history.length - 1 && msg.content === message && msg.role === 'user') {
-        return;
+    let lastRole = null;
+    
+    // We only take the most recent 10 messages for context window efficiency
+    const recentHistory = history.slice(-10);
+
+    recentHistory.forEach((msg) => {
+      const currentRole = msg.role === 'assistant' ? 'model' : 'user';
+      
+      // Prevent consecutive messages with the same role
+      if (currentRole !== lastRole && msg.content && msg.content.trim()) {
+        contents.push({
+          role: currentRole,
+          parts: [{ text: msg.content.trim() }]
+        });
+        lastRole = currentRole;
       }
-      contents.push({
-        role: msg.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: msg.content }]
-      });
     });
+
+    // If the last message in history was a User message AND matches the current message,
+    // remove it from history so we don't have two consecutive user messages when we add the current one.
+    if (contents.length > 0 && 
+        contents[contents.length - 1].role === 'user' && 
+        contents[contents.length - 1].parts[0].text === message.trim()) {
+      contents.pop();
+    }
   }
 
+  // Ensure we don't have a model message as the last one if we're adding a user message.
+  // (Though this shouldn't happen with our pop logic above)
+  
   // Add current message
   contents.push({
     role: 'user',
-    parts: [{ text: message }]
+    parts: [{ text: message.trim() }]
   });
 
   try {
@@ -135,7 +152,7 @@ RULES FOR HOW YOU RESPOND:
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 300,
+            maxOutputTokens: 400, // Slightly more for better context
           }
         })
       }
