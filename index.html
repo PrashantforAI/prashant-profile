@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <script type="application/ld+json">
@@ -60,10 +60,26 @@
       --accent-muted: #6BBF9A;
       --watermark-color: rgba(168, 230, 207, 0.10);
 
-      --font-primary: 'Inter', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-primary: 'DM Sans', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
       --max-width: 900px;
+    }
+
+    /* ── AiTribe Font System ── */
+    h1, h2, h3, h4, h5, h6,
+    .hero-name,
+    .section-heading,
+    .project-title,
+    .exp-company,
+    .featured-title,
+    .contact-heading,
+    .footer-name,
+    .nav-logo,
+    .stat-num {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
     }
 
     * {
@@ -130,8 +146,9 @@
 
     .section-heading {
       font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 48px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 32px;
       color: var(--text-primary);
     }
 
@@ -285,9 +302,10 @@
 
     .hero-name {
       font-size: 64px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 16px;
       line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
     .hero-roles {
@@ -577,7 +595,7 @@
     .featured-title {
       font-size: 32px;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       line-height: 1;
     }
 
@@ -908,10 +926,11 @@
     }
 
     .skill-group-label {
-      font-family: var(--font-primary);
-      font-size: 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
       font-weight: 600;
-      color: var(--text-primary);
+      color: var(--accent);
+      letter-spacing: 0.06em;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
@@ -1818,8 +1837,9 @@
       <h2 class="section-heading">Skills & Stack</h2>
 
       <div class="skills-grid">
+        <!-- Skill Group 1 -->
         <div class="skill-group fade-in">
-          <div class="skill-group-label">⚡ AI & Automation</div>
+          <div class="skill-group-label">// AI & Automation</div>
           <div class="skill-tags">
             <span class="skill-tag">Google AI Studio</span>
             <span class="skill-tag">Google Antigravity</span>
@@ -1834,8 +1854,9 @@
           </div>
         </div>
 
+        <!-- Skill Group 2 -->
         <div class="skill-group fade-in">
-          <div class="skill-group-label">📊 Operations & Business</div>
+          <div class="skill-group-label">// Operations & Business</div>
           <div class="skill-tags">
             <span class="skill-tag">Business Operations</span>
             <span class="skill-tag">Revenue Optimization</span>
@@ -1846,8 +1867,9 @@
           </div>
         </div>
 
+        <!-- Skill Group 3 -->
         <div class="skill-group fade-in">
-          <div class="skill-group-label">🛠 Tools & Platforms</div>
+          <div class="skill-group-label">// Tools & Platforms</div>
           <div class="skill-tags">
             <span class="skill-tag">DaVinci Resolve</span>
             <span class="skill-tag">Looker Studio</span>
@@ -1859,8 +1881,9 @@
           </div>
         </div>
 
+        <!-- Skill Group 4 -->
         <div class="skill-group fade-in">
-          <div class="skill-group-label">🧠 Product & Strategy</div>
+          <div class="skill-group-label">// Product & Strategy</div>
           <div class="skill-tags">
             <span class="skill-tag">Rapid Prototyping</span>
             <span class="skill-tag">Agentic Workflow</span>
